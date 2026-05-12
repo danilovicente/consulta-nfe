@@ -1,0 +1,37 @@
+[project]
+name = "consulta-nfe"
+version = "0.1.0"
+description = "Ferramenta para consultar notas fiscais eletrônicas (NF-e) emitidas contra um CNPJ usando certificado digital A1"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "lxml>=5.0",
+    "cryptography>=42.0",
+    "requests>=2.31",
+    "click>=8.1",
+    "rich>=13.0",
+]
+
+[project.scripts]
+consulta-nfe = "consulta_nfe.cli:main"
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
